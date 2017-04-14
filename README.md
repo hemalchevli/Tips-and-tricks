@@ -30,6 +30,7 @@ __Rule of thumb__: The 1/3 Rise time rule. This states if the route is more than
 
 
 ![1/3 Rule](equations/1_3Rule.png)
+
 ![1/3 Rule defs](equations/1_3Def.png)
 Assuming the Dielectric Constant eR of FR4 is 4, the Velocity of a Signal in FR4 is given as:
 
@@ -40,6 +41,7 @@ Vp(FR4) = (299.792458 / v4) mm/ns
 Transmission effect will start when below condition is true.
 
 ![1/3 condition](equations/1_3Condition.png)
+
 ![1/3 condition defs](equations/1_3ConditionDef.png)
 
 For FR4, the route length at which transmission line effects need to be considered can be calculated as:
