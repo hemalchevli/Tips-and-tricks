@@ -24,7 +24,7 @@ In high speed signals, energy is concentrated on the edge of the trace called th
 
 Impedance matching, high quality return path and vias are the three edges of the triangle of high speed design.
 
-__INFO: An important point to keep in mind, the return path is through the closest power plane, which might not be a ground plane. If the return path is through a power plane instead of a ground plane, then the return energy will ultimately get to ground through the decoupling capacitors that are closest to the source and target pins. If you are relying on a power plane to provide the return path, carefully consider the location of the decoupling capacitors (also referred as stitching caps) near these pins to minimize the size of any loop created.
+__INFO__: An important point to keep in mind, the return path is through the closest power plane, which might not be a ground plane. If the return path is through a power plane instead of a ground plane, then the return energy will ultimately get to ground through the decoupling capacitors that are closest to the source and target pins. If you are relying on a power plane to provide the return path, carefully consider the location of the decoupling capacitors (also referred as stitching caps) near these pins to minimize the size of any loop created.
 
 __Rule of thumb__: The 1/3 Rise time rule. This states if the route is more than 1/3 of the rise time, signal reflections can occur. For example 1nS rise time route longer than 0.33nS (2 inches in FR4) will have problems.
 
@@ -64,7 +64,8 @@ Impedance is governed by the trace height, width and the dielectric of the mater
 __Differential Pair__:
 Differential pairs provide strong immunity to noise and reduce the reliance on a high-quality return path via a plane. This reduced reliance on a ground plane is directly related to the degree that the pair lengths are matched and remain consistently coupled - as the length matching or the coupling declines, then the reliance of the signals on the plane increases. Most experts agree that matching the length is the critical requirement for differential pairs.
 
-__Vias__: Vias appear as capacitive and inductive discontinuity in the signal path. So the impedance of the signal is affected. Use uVias. Avoid stubs in via, if not avoidable, use back drilling (increased PCB fab cost). But avoid stubs at all costs, they are a major source of signal reflection.
+__Vias__: Vias appear as capacitive and inductive discontinuity in the signal path. So the impedance of the signal is affected. Use uVias. Avoid stubs in via, if not avoidable, use back drilling (increased PCB fab cost). But avoid stubs at all costs, they are a major source of signal reflection. __Use octagonal vias to have maximum clearance.__
+Stitching vias for high speed signals to have low impedance return path.
 
 __Tip__: Reduce cross talk. Rule of thumb is to keep potential aggressors (CLKs) at least three times the trace width away (centre to centre) from victim trace. This rule is referred to as 3-W rule. Program is rule in CAD if allowed.
 
