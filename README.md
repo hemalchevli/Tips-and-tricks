@@ -1,4 +1,4 @@
-Last Edited: 2017/4/14
+Last Edited: 2017/4/27
 
 High Speed Design Notes
 =======================
@@ -106,17 +106,30 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
        - Project firmware/
      - App/  (if any)
 
+# Components
+
+ - Try using 1% resistors rather than 5%. Price is almost same. 1% Board will be more stable in high temp environment than using 5%.
+ - Before adding any part in the schematic, check the supplier website.
+ - Use through hole connectors, SMD connectors have comparativly low life of operation.
+
 # Schematics
 
  - Circuit should have a smooth __flow from left to right and top to bottom.__
  - Try to __design circuit in functional blocks__, and place a text for the box. Use net labels fly wires for connecting one block to other.
  - Use below reference designators for various symbols.
-   - Connectors: P or J
    - IC: IC or U
    - Resistor: R
    - Capacitor: C
+   - Inductor: L
    - Transistor: Q
-   - Diode: D
+   - Diode/LED: D
+   - Crystal: Y/XTAL
+   - Pin headers: J
+   - Jumper: JP
+   - Fuse: F
+   - Ferrite Bead: FB
+   - Fiducial: FD
+   - Test point: TP
  - __Add cover page__ for schematic and add following to it.
    - Project name, date, and re/version number. All the names of schematics, notes legend, company information.
    - Schematic status with date (Draft, Preliminary, Checked, Released)
@@ -145,10 +158,8 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - If approval from client is needed for one or two extra part, just add it. It can be removed later. Don't keep waiting for approval.
 
  - Check and double __check RX TX pins connections__ between two components in schematics.
-
-# Components
-
- - Try using 1% resistors rather than 5%. Price is almost same. 1% Board will be more stable in high temp environment than using 5%.
+ - Add net labels on important connections, evein if its a short wire on schematic.
+ - Add test points, must for all power rails, on power control signals, on interfaces of rarely programables chips(eg memory).
 
 
 # Placement
@@ -366,3 +377,5 @@ Layer Stack up: http://www.hottconsultants.com/tips.html
 Solid Altium documentation: http://www.altium.com/documentation/15.1/display/ADES/((High+Speed+Design+in+Altium+Designer))_AD
 
 Equations imported to images from here: http://www.sciweavers.org/free-online-latex-equation-editor
+
+Reference Designators: https://en.wikipedia.org/wiki/Reference_designator
