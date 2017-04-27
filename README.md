@@ -160,9 +160,11 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - Check and double __check RX TX pins connections__ between two components in schematics.
  - Add net labels on important connections, evein if its a short wire on schematic.
  - Add test points, must for all power rails, on power control signals, on interfaces of rarely programables chips(eg memory).
+ -  Place components in the schematic close to the pins where they should be located on PCB
 
 
 # Placement
+ - Keep in mind the manufacturing technology that will be used, and place components accordingly to avoid solder bridges especially in wave soldering method.
  - Give this a read (http://frontdoor.biz/HowToPCB/HowToPCB-Place.html)
  - Plan you layout first, then start placement.
  - Start with big/main/critical components first like MCU, clock devices, then place resistors and capacitors etc.
@@ -182,6 +184,9 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - Place four mounting holes.
  - Make sure enough space around mounting holes for screw heads to sit on and try placing big components around PCB.
  - Keep more space around headers pins/connectors. Learn from arduino's mistake on placing ISP of 168p too close to Arduino headers. There is no space for screw head on mount hole near USB connector.
+ - Use stands off components for connectors  like mPCIe card, so that components can be placed under the card to save the space on PCB.
+ - Place hot components on the top side of the PCB.
+ - Must place test points on all power nets and optional critical signals and progaming pins if needed.
 
 
 # Layout
@@ -313,6 +318,24 @@ __Layer Stack up suggested by Altuim documentation.__
  - Always mark pin 1 of connectors on silk screen.
 
  - Route power track with min 0.4mm thickness.
+
+ ### Rise Time and Length in PCB
+
+ | Logic Type    | Typical Edge speed(nS)Rise/Fall Time | Transition Electrical Length in FR-4(CM) | Critical Length(CM)|
+ | ------------- | ------------------------------------ | --------------------------------------- | ------------------ |
+ | TTL           | 5                                    | 76.20                                   | 38.10              | 
+ | FTTL          | 1.2                                  | 18.29                                   | 9.14               | 
+ | 10 K ECL      | 2.5                                  | 38.10                                   | 19.05              | 
+ | BTL           | 0.5                                  | 7.62                                    | 3.81               | 
+ | LVDS          | 0.3                                  | 4.57                                    | 2.29               | 
+ | 100K ECL      | 0.5                                  | 7.76                                    | 3.81               | 
+ | GaAs 106      | 0.3                                  | 4.57                                    | 2.29               | 
+ | GLT+(PentPro) | 0.3                                  | 4.57                                    | 2.29               | 
+ | OC-48         | 0.2                                  | 3.05                                    | 1.52               | 
+ | OC-192        | 0.05                                 | 0.76                                    | 0.38               | 
+
+“Transition Electrical Length” lists the electrical length of each of the rise times. The column titled “Critical Length” lists the approximate electrical length at which two transmission lines running in parallel will achieve worst-case backward crosstalk in a PCB.
+
 
 ## DDR3 RAM
 Read about Manhattan distance, and topology for connecting ddr3 ram, T topology, and fly by topology.
