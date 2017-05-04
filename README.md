@@ -10,6 +10,8 @@ This document contains information and tip and tricks about hardware design incl
 
 __Tip__: Always maintain projects with revision control software.
 
+__Tip__: Always include version number in project name and associated files.
+
 __Tip__: Keep grids across the document consistent, in metric or imperial. Meaning don't use metric for placement and imperial for layout.
 
 __Tip__: Invest time to learn and use the capabilities of CAD tool you are using.
@@ -111,6 +113,7 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - Try using 1% resistors rather than 5%. Price is almost same. 1% Board will be more stable in high temp environment than using 5%.
  - Before adding any part in the schematic, check the supplier website.
  - Use through hole connectors, SMD connectors have comparativly low life of operation.
+ - __Use__ slightly __different foot prints for resistor and capacitor for same size__ e.g. 0805.
 
 # Schematics
 
@@ -161,6 +164,7 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - Add net labels on important connections, evein if its a short wire on schematic.
  - Add test points, must for all power rails, on power control signals, on interfaces of rarely programables chips(eg memory).
  -  Place components in the schematic close to the pins where they should be located on PCB
+ - Generate PDF of the compeleted schematic.
 
 
 # Placement
@@ -187,12 +191,12 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - Use stands off components for connectors  like mPCIe card, so that components can be placed under the card to save the space on PCB.
  - Place hot components on the top side of the PCB.
  - Must place test points on all power nets and optional critical signals and progaming pins if needed.
-
+ - Place fiducial on corners of board, if space is not available in corner, place it under any through hole component, as the the fiducial will not be covered as through component are assembled after SMD.
 
 # Layout
-
  - __Plan your layout__ first before starting.
- - __Use__ slightly __different foot prints for resistor and capacitor for same size__ e.g. 0805.
+ - Start with long route lengths and then route short ones.
+ - For two layer PCB route signal track on only singel layer, route short signals on other layer if necessary.
  - __Create board variants__ of PCB design if CAD allows it.
  - __Use__ optional __resistor to re-route signal to different interfaces__ or connectors
  - Have __exactly same pins on symbols as on foot print part__. Draw all pins even if a group of pins connects to same net.
@@ -204,7 +208,7 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - For BGA, __fan out all pins routes__ just outside the package and place all the vias before starting any routing the board.
  - __Never use auto router__, not even for small section of PCB.
  - __Never split ground planes__ (from mixed signals article issue June 2001 Printed Circuit design & circuits assembly design magazine), it will cause EMC problems by creating a dipole antenna. Use virtual partition in layout, separate the analog and digital sections. Don't create voids in planes either, it creates an antenna.
-- __Place analog circuit in a corner__ of board, so it will not interfere with high speed/current traces.
+ - __Place analog circuit in a corner__ of board, so it will not interfere with high speed/current traces.
  - Read PCB Design Guidelines For Reduced EMI - Texas Instruments (www.ti.com/lit/an/szza009/szza009.pdf)
  - Read 6 pillars of DfMA article in 03-16 issue of Printed Circuit design & circuits assembly design magazine's design practices section, all issue are free to download from magazine's website.
  - Use low ESR __X7R 0604 caps.__
@@ -378,7 +382,7 @@ Read about Manhattan distance, and topology for connecting ddr3 ram, T topology,
 # Testing
  - Power the test board from lab power supply with current limiter, if any short is present, it will not let the magic smoke out.
  - If you assembly a prototype if it doesn't work, do not assembly more boards, find and fix the problem found in first board.
-
+ - Create paper model of the board before sending it out to fab.
 ## 	Resources
 
 Various Printed Circuit design & circuits assembly design magazine issues (http://pcdandf.com/pcdesign/)
