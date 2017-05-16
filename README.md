@@ -1,5 +1,3 @@
-Last Edited: 2017/4/27
-
 High Speed Design Notes
 =======================
 __DISCLAIMER__: Use what you find here at your own risk, I'm just trying to be helpful. None of this is set in stone, take what you can from here and make your own style.
@@ -165,6 +163,8 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - Add test points, must for all power rails, on power control signals, on interfaces of rarely programables chips(eg memory).
  -  Place components in the schematic close to the pins where they should be located on PCB
  - Generate PDF of the compeleted schematic.
+ - Refer this: https://electronics.stackexchange.com/questions/28251/rules-and-guidelines-for-drawing-good-schematics
+ - Simulate parts of the circuit if needed using LTspice
 
 
 # Placement
@@ -195,6 +195,7 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
 
 # Layout
  - __Plan your layout__ first before starting.
+ - Start routing with thicker traces and at end of layout change back to thinner track, this will increase the gap between tracks and also decrease the cross talk.
  - Start with long route lengths and then route short ones.
  - For two layer PCB route signal track on only singel layer, route short signals on other layer if necessary.
  - __Create board variants__ of PCB design if CAD allows it.
@@ -223,6 +224,19 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - __Avoid drawing diagonal trace.__ Layers are in even numbers, use layer pairs and route horizontally on one and vertical traces on other.
  - For multilayer boards, __keep layer stack up symmetrical__ to avoid board warpage.
  - __Use stitching Caps__ when signals use power plane as reference for return path to gnd. __Very important__
+ - For 2 layer PCB, do not just pour gnd all over the pcb, think about the current flows and return paths. Its good to have one gnd reference plane.
+ 
+#Silkscreen
+ - Place information on silkscreen when space is available.
+ - Place pin number/names for headers.
+ - Add table if board has variants
+ - Add company information and logo.
+ - Information about jumper settings
+ - Add information for power inputs
+ - Add mechanical layer for dimensions of board, mount holes, important connectors etc. add units, and scale.
+ - Add manufacture notes, information like file names, pcb thickness, soldermask colour, silkscreen colour, panalizing info if any.
+ - Add license on a seperate layer.
+
 
 ### Layout Approach
 
@@ -383,6 +397,8 @@ Read about Manhattan distance, and topology for connecting ddr3 ram, T topology,
  - Power the test board from lab power supply with current limiter, if any short is present, it will not let the magic smoke out.
  - If you assembly a prototype if it doesn't work, do not assembly more boards, find and fix the problem found in first board.
  - Create paper model of the board before sending it out to fab.
+ - Test your board for ESD before sending out for production.
+ 
 ## 	Resources
 
 Various Printed Circuit design & circuits assembly design magazine issues (http://pcdandf.com/pcdesign/)
