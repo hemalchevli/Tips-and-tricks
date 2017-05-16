@@ -3,6 +3,10 @@ Altium Designer Notes
 
 # Creating Parts
  - Add supplier data into schematic symbol using supplier search.
+ - Hide supplier part number.
+ - Draw the symbol.
+ - Change designator.
+ - change default comment to manufacture part number.
  - Change mouse settings to match that of kicad.
  - Draw body outline, adding the tolerances in datasheet.
  - Get 3D models from 3d central.
@@ -23,7 +27,7 @@ Altium Designer Notes
  - Add notes with colour code and titles in schematic and provide legend on cover page.
  - Use two monitor setup, one with schematic and one with pcb.
  - Enable Tools> Cross select mode
- - Press R while moving component to change modes(AVoid, Push, Ignor)
+ - Press R while moving component to change modes(Avoid, Push, Ignor)
  - After selecting component in schmatic after Cross probing, the mask in pcb goes away. To fix this, right click on navigator and select "Select Objects".
  - CTRL + Click on net to highlight it. use '[' and ']' change intensity of highlight.
  - Press 'L' to place component on bottom.
