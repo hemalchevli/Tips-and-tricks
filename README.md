@@ -22,7 +22,7 @@ __INFO__: What is high speed design? The design that included devices with fast 
 Technical definition of high speed design: When the round trip time of the signal is equal to or longer than the rise time of the signal, now signal integrity is in doubt and this makes your design is a high speed design.
 In high speed signals, energy is concentrated on the edge of the trace called the skin effect. So now the property of the material surrounding the trace dictates how fast the signal can move.
 
-Impedance matching, high quality return path and vias are the three edges of the triangle of high speed design.
+Impedance matching, high quality return path and vias are the three edges of the triangle that contain the problems with high speed design.
 
 __INFO__: An important point to keep in mind, the return path is through the closest power plane, which might not be a ground plane. If the return path is through a power plane instead of a ground plane, then the return energy will ultimately get to ground through the decoupling capacitors that are closest to the source and target pins. If you are relying on a power plane to provide the return path, carefully consider the location of the decoupling capacitors (also referred as stitching caps) near these pins to minimize the size of any loop created.
 
@@ -59,7 +59,7 @@ LR ˜ 5mm (0.2 inches)!! On a board with signals switching at these speeds, most
 Sometimes is not always possible to have route lengths shorter than the calculated. So signal reflections will be present, now we have to minimize the reflected energy. That done by impedance matching. Transmission lines have property, when they are terminated by an impedance equal to their own, no energy is reflected back.
 
 __Impedance Matching__:
-Impedance is governed by the trace height, width and the dielectric of the material surrounding the trace i.e. air or fr4. For a trace to be a transmission line, the adjacent layer must me a plane. By carefully arranging layer stack up, dimensions and properties can be calculated and a specific impedance can be achieved. By keeping the target impedance constant, dimensions and properties are modified to achieve that target impedance. This is called controlled impedance routing.
+Impedance is governed by the trace height, width and the dielectric of the material surrounding the trace i.e. air(top/bottom layer) or fr4(inner layers). For a trace to be a transmission line, the adjacent layer must be a plane. By carefully arranging layer stack up, dimensions and properties can be calculated and a specific impedance can be achieved. By keeping the target impedance constant, dimensions and properties are modified to achieve that target impedance. This is called controlled impedance routing.
 
 __Differential Pair__:
 Differential pairs provide strong immunity to noise and reduce the reliance on a high-quality return path via a plane. This reduced reliance on a ground plane is directly related to the degree that the pair lengths are matched and remain consistently coupled - as the length matching or the coupling declines, then the reliance of the signals on the plane increases. Most experts agree that matching the length is the critical requirement for differential pairs.
@@ -99,7 +99,7 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
         - KiCad_Project.kicad_pcb
         - KiCad_Project.lib
         - BOM.xls
-     - Datasheets/ (also contains app notes)
+     - Data-sheets/ (also contains app notes)
    - Software/
      - Firmware/
        - Tests/
@@ -110,7 +110,7 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
 
  - Try using 1% resistors rather than 5%. Price is almost same. 1% Board will be more stable in high temp environment than using 5%.
  - Before adding any part in the schematic, check the supplier website.
- - Use through hole connectors, SMD connectors have comparativly low life of operation.
+ - Use through hole connectors, SMD connectors have comparatively low life of operation.
  - __Use__ slightly __different foot prints for resistor and capacitor for same size__ e.g. 0805.
 
 # Schematics
@@ -159,12 +159,12 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - If approval from client is needed for one or two extra part, just add it. It can be removed later. Don't keep waiting for approval.
 
  - Check and double __check RX TX pins connections__ between two components in schematics.
- - Add net labels on important connections, evein if its a short wire on schematic.
- - Add test points, must for all power rails, on power control signals, on interfaces of rarely programables chips(eg memory).
+ - Add net labels on important connections, even if its a short wire on schematic.
+ - Add test points, must for all power rails, on power control signals, on interfaces of rarely programmables chips(eg memory).
  -  Place components in the schematic close to the pins where they should be located on PCB
- - Generate PDF of the compeleted schematic.
+ - Generate PDF of the completed schematic.
  - Refer this: https://electronics.stackexchange.com/questions/28251/rules-and-guidelines-for-drawing-good-schematics
- - Simulate parts of the circuit if needed using LTspice
+ - Simulate parts of the circuit if needed using your favorite simulation software
 
 
 # Placement
@@ -190,14 +190,14 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - Keep more space around headers pins/connectors. Learn from arduino's mistake on placing ISP of 168p too close to Arduino headers. There is no space for screw head on mount hole near USB connector.
  - Use stands off components for connectors  like mPCIe card, so that components can be placed under the card to save the space on PCB.
  - Place hot components on the top side of the PCB.
- - Must place test points on all power nets and optional critical signals and progaming pins if needed.
+ - Must place test points on all power nets and optional critical signals and programming pins if needed.
  - Place fiducial on corners of board, if space is not available in corner, place it under any through hole component, as the the fiducial will not be covered as through component are assembled after SMD.
 
 # Layout
  - __Plan your layout__ first before starting.
  - Start routing with thicker traces and at end of layout change back to thinner track, this will increase the gap between tracks and also decrease the cross talk.
  - Start with long route lengths and then route short ones.
- - For two layer PCB route signal track on only singel layer, route short signals on other layer if necessary.
+ - For two layer PCB route signal track on only single layer, route short signals on other layer if necessary.
  - __Create board variants__ of PCB design if CAD allows it.
  - __Use__ optional __resistor to re-route signal to different interfaces__ or connectors
  - Have __exactly same pins on symbols as on foot print part__. Draw all pins even if a group of pins connects to same net.
@@ -216,13 +216,13 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  -  For 4 to 6 PCB layers have 2 to 4 power planes.
  - Clearance: 6 mils
      - Trace width: 6 mils
- - Use __PCB thickness: 1.6mm - 2mm__ (Less than this will cause heating issues leading to potential warpage.
+ - Use __PCB thickness: 1.6mm - 2mm__ (Less than this will cause heating issues leading to potential warp-age.
  - Via hole 0.3
  - __Avoid Stubs__ to prevent signal reflections. (Stubs? http://www.polarinstruments.com/support/si/AP8166.html)
  - Isolate clock and HI-SPEED signal
  - Good article to avoid PCB defects (https://www.linkedin.com/pulse/how-avoid-embedded-pcb-design-defects-lisa-liu-jingwen)
  - __Avoid drawing diagonal trace.__ Layers are in even numbers, use layer pairs and route horizontally on one and vertical traces on other.
- - For multilayer boards, __keep layer stack up symmetrical__ to avoid board warpage.
+ - For multi-layer boards, __keep layer stack up symmetrical__ to avoid board warp-age.
  - __Use stitching Caps__ when signals use power plane as reference for return path to gnd. __Very important__
  - For 2 layer PCB, do not just pour gnd all over the pcb, think about the current flows and return paths. Its good to have one gnd reference plane.
  
@@ -234,8 +234,8 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
  - Information about jumper settings
  - Add information for power inputs
  - Add mechanical layer for dimensions of board, mount holes, important connectors etc. add units, and scale.
- - Add manufacture notes, information like file names, pcb thickness, soldermask colour, silkscreen colour, panalizing info if any.
- - Add license on a seperate layer.
+ - Add manufacture notes, information like file names, pcb thickness, solder-mask colour, silkscreen colour, panalizing info if any.
+ - Add license on a separate layer.
 
 
 ### Layout Approach
@@ -352,7 +352,7 @@ __Layer Stack up suggested by Altuim documentation.__
  | OC-48         | 0.2                                  | 3.05                                    | 1.52               | 
  | OC-192        | 0.05                                 | 0.76                                    | 0.38               | 
 
-“Transition Electrical Length” lists the electrical length of each of the rise times. The column titled “Critical Length” lists the approximate electrical length at which two transmission lines running in parallel will achieve worst-case backward crosstalk in a PCB.
+“Transition Electrical Length” lists the electrical length of each of the rise times. The column titled “Critical Length” lists the approximate electrical length at which two transmission lines running in parallel will achieve worst-case backward cross-talk in a PCB.
 
 
 ## DDR3 RAM
@@ -398,8 +398,8 @@ Read about Manhattan distance, and topology for connecting ddr3 ram, T topology,
  - If you assembly a prototype if it doesn't work, do not assembly more boards, find and fix the problem found in first board.
  - Create paper model of the board before sending it out to fab.
  - Test your board for ESD before sending out for production.
- 
-## 	Resources
+
+##  Resources
 
 Various Printed Circuit design & circuits assembly design magazine issues (http://pcdandf.com/pcdesign/)
 
@@ -417,7 +417,7 @@ http://frontdoor.biz/HowToPCB/HowToPCB-PageOne.html
 
 Layer Stack up: http://www.hottconsultants.com/tips.html
 
-Solid Altium documentation: http://www.altium.com/documentation/15.1/display/ADES/((High+Speed+Design+in+Altium+Designer))_AD
+Altium documentation: http://www.altium.com/documentation/15.1/display/ADES/((High+Speed+Design+in+Altium+Designer))_AD
 
 Equations imported to images from here: http://www.sciweavers.org/free-online-latex-equation-editor
 
