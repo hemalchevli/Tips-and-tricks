@@ -69,7 +69,6 @@ Stitching vias for high speed signals to have low impedance return path.
 
 __Tip__: Reduce cross talk. Rule of thumb is to keep potential aggressors (CLKs) at least three times the trace width away (centre to centre) from victim trace. This rule is referred to as 3-W rule. Program is rule in CAD if allowed.
 
-
 __SI UNITS__
 ------------
 
