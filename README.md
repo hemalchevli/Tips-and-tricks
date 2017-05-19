@@ -6,6 +6,20 @@ __This document is currently in a work in progress.__
 
 This document contains information and tip and tricks about hardware design including schematic, placement, layout, documentation etc. These are the things I learned while working with high speed digital design. I found these from various places on the interwebs, magazines and reference manuals, etc.
 
+# Table of Contents
+
+- [General Information](#general)
+- [What is High Speed](#high-speed)
+- [Component Tips](#components)
+- [Schematics Tips](#schematics)
+- [Placement Tips](#placement)
+- [Layout Tips](#layout)
+- [Silkscreen Tips](#silkscreen)
+- [Misc Tips](#misc)
+- [Resources](#resources)
+
+# General
+
 __Tip__: Always maintain projects with revision control software.
 
 __Tip__: Always include version number in project name and associated files.
@@ -17,6 +31,44 @@ __Tip__: Invest time to learn and use the capabilities of CAD tool you are using
 __Tip__: If not 100% sure if part of circuit will work, add an optional components, like 0ohm resistor and a bypass circuit.
 
 __INFO__: a "mil" is one-thousandth of an inch. MIL is also used by some as short for millimeter. Clear it up with whom you are working with.
+
+### __SI UNITS__
+
+
+| PREFIX | SYMBOL | VALUE             |
+| ------ | ------ | ----------------- |
+| tera   | T      | 1 000 000 000 000 |
+| giga   | G      | 1 000 000 000     |
+| mega   | M      | 1 000 000         |
+| kilo   | k      | 1 000             |
+|        | (none) | 1                 | 
+| milli  | m      | .001              |
+| micro  | u      | .000 001          |
+| nano   | n      | .000 000 001      |
+| pico   | p      | .000 000 000 001  |
+
+For usage refer: Guide to the SI, with a focus on usage and unit conversions: (http://physics.nist.gov/cuu/pdf/sp811.pdf)
+
+### Project Tree
+ - Project_Name
+   - CAD/
+   - Hardware/
+     - KiCad_Project_Folder/
+        - 3D renders/
+        - Footprints.pretty/
+        - Gerbers/
+        - KiCad_Project.sch
+        - KiCad_Project.kicad_pcb
+        - KiCad_Project.lib
+        - BOM.xls
+     - Data-sheets/ (also contains app notes)
+   - Software/
+     - Firmware/
+       - Tests/
+       - Project firmware/
+     - App/  (if any)
+
+# High Speed
 
 __INFO__: What is high speed design? The design that included devices with fast edges. Device switches so quickly that the transition is complete before the signal can travel the other device through the trace. In this case the signal can have reflections and degrade the original signal.  Think of traces as transmission lines.
 Technical definition of high speed design: When the round trip time of the signal is equal to or longer than the rise time of the signal, now signal integrity is in doubt and this makes your design is a high speed design.
@@ -69,6 +121,7 @@ Stitching vias for high speed signals to have low impedance return path.
 
 __Tip__: Reduce cross talk. Rule of thumb is to keep potential aggressors (CLKs) at least three times the trace width away (centre to centre) from victim trace. This rule is referred to as 3-W rule. Program is rule in CAD if allowed.
 
+<<<<<<< Updated upstream
 __SI UNITS__
 ------------
 
@@ -104,6 +157,8 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
        - Tests/
        - Project firmware/
      - App/  (if any)
+=======
+>>>>>>> Stashed changes
 
 # Components
 
@@ -167,6 +222,7 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
 
 
 # Placement
+
  - Keep in mind the manufacturing technology that will be used, and place components accordingly to avoid solder bridges especially in wave soldering method.
  - Give this a read (http://frontdoor.biz/HowToPCB/HowToPCB-Place.html)
  - Plan you layout first, then start placement.
