@@ -41,7 +41,11 @@ __INFO__: a "mil" is one-thousandth of an inch. MIL is also used by some as shor
 | giga   | G      | 1 000 000 000     |
 | mega   | M      | 1 000 000         |
 | kilo   | k      | 1 000             |
+<<<<<<< Updated upstream
 |        | (none) | 1                 | 
+=======
+|        | (none) | 1                 |
+>>>>>>> Stashed changes
 | milli  | m      | .001              |
 | micro  | u      | .000 001          |
 | nano   | n      | .000 000 001      |
@@ -122,6 +126,7 @@ Stitching vias for high speed signals to have low impedance return path.
 __Tip__: Reduce cross talk. Rule of thumb is to keep potential aggressors (CLKs) at least three times the trace width away (centre to centre) from victim trace. This rule is referred to as 3-W rule. Program is rule in CAD if allowed.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 __SI UNITS__
 ------------
 
@@ -157,6 +162,8 @@ For usage refer: Guide to the SI, with a focus on usage and unit conversions: (h
        - Tests/
        - Project firmware/
      - App/  (if any)
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
