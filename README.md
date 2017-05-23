@@ -180,7 +180,7 @@ __Tip__: Reduce cross talk. Rule of thumb is to keep potential aggressors (CLKs)
  -  Place components in the schematic close to the pins where they should be located on PCB
  - Generate PDF of the completed schematic.
  - Refer this: https://electronics.stackexchange.com/questions/28251/rules-and-guidelines-for-drawing-good-schematics
- - Simulate parts of the circuit if needed using your favorite simulation software
+ - Simulate parts of the circuit if needed using your favorite simulation software. But never trust the simulation software a 100%, breadboard the circuit before it goes on the schematic.
 
 
 # Placement
@@ -242,6 +242,7 @@ __Tip__: Reduce cross talk. Rule of thumb is to keep potential aggressors (CLKs)
  - For multi-layer boards, __keep layer stack up symmetrical__ to avoid board warp-age.
  - __Use stitching Caps__ when signals use power plane as reference for return path to gnd. __Very important__
  - For 2 layer PCB, do not just pour gnd all over the pcb, think about the current flows and return paths. Its good to have one gnd reference plane.
+ - For multilayer PCB, add numbers to each layer and offset it, also add copper strips on edge of the board which will be proturded off the pcb edge, the lenght should increase with layer number for better understanding watch this [video](https://www.youtube.com/watch?v=ngIbkh6HKoU)
  
 #Silkscreen
  - Place information on silkscreen when space is available.
