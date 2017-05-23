@@ -3,7 +3,7 @@ Embedded System Design
 
 # Documentation
 - Document what code does not how it does.
-- i++; //increment index . For God's sake don't do this.
+- `i++; //increment index` . For God's sake don't do this.
 - Create system diagrams for both hardware and software.
 - __Hardware:__
   - Start with power block, to sub systems,
@@ -20,4 +20,5 @@ Embedded System Design
 ```C
 static tBoolean gLogOnPrivate;
 ```
-The static keyword means different things in different places. For functions and variables outside functions, the keyword means “hide me so no one else can see” and limits scope. For variables within a function, the static keyword maintains the value between calls, acting as a global variable whose scope is only the function it is declared in.
+ - The `static` keyword means different things in different places. For functions and variables outside functions, the keyword means “hide me so no one else can see” and limits scope. For variables within a function, the static keyword maintains the value between calls, acting as a global variable whose scope is only the function it is declared in.
+ - Model View controller
