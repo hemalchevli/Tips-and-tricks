@@ -416,6 +416,13 @@ Read about Manhattan distance, and topology for connecting ddr3 ram, T topology,
  - If you assembly a prototype if it doesn't work, do not assembly more boards, find and fix the problem found in first board.
  - Create paper model of the board before sending it out to fab.
  - Test your board for ESD before sending out for production.
+ 
+ # Board Release procedure
+ - Make sure the footprint match the manufactuer part number.
+ - Recheck numbering on tactile switches.
+ - Check schematic for any errors.
+ - Check DRC in PCB.
+ - Inspect gerber files generated.
 
 ##  Resources
 
