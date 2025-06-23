@@ -244,7 +244,7 @@ __Tip__: Reduce cross talk. Rule of thumb is to keep potential aggressors (CLKs)
  - For 2 layer PCB, do not just pour gnd all over the pcb, think about the current flows and return paths. Its good to have one gnd reference plane.
  - For multilayer PCB, add numbers to each layer and offset it, also add copper strips on edge of the board which will be proturded off the pcb edge, the lenght should increase with layer number for better understanding watch this [video](https://www.youtube.com/watch?v=ngIbkh6HKoU)
  
-#Silkscreen
+# Silkscreen
  - Place information on silkscreen when space is available.
  - Place pin number/names for headers.
  - Add table if board has variants
